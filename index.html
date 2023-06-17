@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ARRAY OF OBJECTS</h1> <hr> <hr>
+    <h1>Question :let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+        {name: 'Baba', id: 101, marks : 23 },
+        {name: 'yaga', id: 200, marks : 45 },
+        {name: 'Wick', id: 115, marks : 75 } ] </h1>
+     
+    <h1>Q1:We are interested in retrieving only the students' names; all the names should be in caps.
+
+        ['JOHN', 'BABA', 'YAGA', 'WICK']</h1>
+    <pre>
+        let cap = [];
+    for (let i = 0; i < studentRecords.length; i++){
+        cap.push(studentRecords[i].name.toUpperCase());
+    }
+    console.log(cap)
+    </pre>
+  <h1>Q2:Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+
+    [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]</h1>
+<pre>
+    let high = studentRecords.filter(student => student.marks > 50)
+    console.log(high)
+</pre>
+<h1>Q3:Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.</h1>
+<pre>
+    let retrive = studentRecords.filter(student => student.marks > 50 && student.id>120 );
+    console.log(retrive)
+</pre>
+<h1>Q4:Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.</h1>
+<pre>
+    let total = studentRecords.reduce((sum, student) => sum + student.marks,0);
+    console.log(total)
+</pre>    
+<h1>Q5:This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.</h1>
+<pre>
+    let names = studentRecords.filter(student => student.marks >50)
+                .map(student => student.name);
+   console.log(names);
+</pre>
+<h1>Q6:This time we are required to print the sum of marks of the students with id > 120.</h1>
+<pre>
+    let idtotal = studentRecords
+    .filter(student => student.id > 120)
+    .reduce((sum, student) => sum + student.marks , 0);
+console.log(idtotal);
+//q7
+</pre>
+<h1>Q7:This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.</h1>
+<pre>
+    let add = studentRecords
+              .map(student => {
+                if(student.marks <= 50){
+                    student.marks += 15;
+                }
+                return student.marks;
+              })
+              .reduce((sum , marks) => sum + marks, 0)
+    console.log(add)
+
+</pre>
+<h1>Q8:</h1>
+<pre>
+let student1 = { name: 'John', class: '10th', rollNo: 1 };
+let student2 = { name: 'Jane', class: '9th', rollNo: 2 };
+let student3 = { name: 'David', class: '12th', rollNo: 3 };
+let student4 = { name: 'Emily', class: '11th', rollNo: 4 };
+let student5 = { name: 'Michael', class: '10th', rollNo: 5 };
+let student6 = { name: 'Sophia', class: '9th', rollNo: 6 };
+ 
+let all = [student1, student2, student3, student4, student5, student6];
+console.log(all);
+</pre>
+
+</body>
+</html>
